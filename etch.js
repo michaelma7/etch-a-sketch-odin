@@ -10,7 +10,6 @@ for (i=1; i<257; i++){
 //event listeners for hover effect
 let divs = document.querySelectorAll(".cell");
 divs.forEach(div => div.addEventListener("mouseover", changeColor));
-// divs.forEach(div => div.addEventListener("mouseout",  removeColor)); 
 
 //button event listeners
 let btn = document.querySelector(".resize");
@@ -31,10 +30,6 @@ function changeColor(e) {
     div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
-function removeColor(e) {
-    let div  = e.target;
-    div.style.backgroundColor = 'white';
-}
 
 function resetGrid() {
     let divs = document.querySelectorAll(".cell");
@@ -63,7 +58,6 @@ function changeGrid() {
 
         let divs = document.querySelectorAll(".cell");
         divs.forEach(div => div.addEventListener("mouseover", changeColor));
-        // divs.forEach(div => div.addEventListener("mouseout",  removeColor)); 
     }
     else {
         return alert("Not a valid number.")
