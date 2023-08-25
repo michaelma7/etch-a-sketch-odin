@@ -1,7 +1,7 @@
-//creating intial 16x16 grid
+//creating initial 16x16 grid
 for (i=1; i<257; i++){
     let division = document.createElement('div');
-    division.setAttribute("class", "cell");
+    division.classList.add("cell");
 
     let container = document.getElementById('pad');
     container.appendChild(division);
@@ -10,11 +10,13 @@ for (i=1; i<257; i++){
 //event listeners for hover effect
 let divs = document.querySelectorAll(".cell");
 divs.forEach(div => div.addEventListener("mouseover", changeColor));
-divs.forEach(div => div.addEventListener("mouseout",  removeColor)); 
+// divs.forEach(div => div.addEventListener("mouseout",  removeColor)); 
 
-//button event listener
-let btn = document.querySelector("button");
+//button event listeners
+let btn = document.querySelector(".resize");
 btn.addEventListener("click", changeGrid);
+let reset = document.querySelector(".reset");
+reset.addEventListener("click", resetGrid);
 
 function randomInteger(max) {
     return Math.floor(Math.random() * (max + 1));
@@ -26,12 +28,17 @@ function changeColor(e) {
     let g = randomInteger(255);
     let b = randomInteger(255);
     let div = e.target;
-    div.setAttribute('style', `background-color: rgb(${r}, ${g}, ${b})`);
+    div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
 
 function removeColor(e) {
     let div  = e.target;
-    div.setAttribute('style', 'background-color: white');
+    div.style.backgroundColor = 'white';
+}
+
+function resetGrid() {
+    let divs = document.querySelectorAll(".cell");
+    divs.forEach(div => div.style.backgroundColor = "white");
 }
 
 function changeGrid() {
@@ -46,7 +53,7 @@ function changeGrid() {
         let sketch = document.getElementById('pad');
         for (i=1; i<total; i++){
             let division = document.createElement('div');
-            division.setAttribute("class", "cell");            
+            division.classList.add("cell");            
 
             sketch.appendChild(division);
         }
@@ -56,7 +63,7 @@ function changeGrid() {
 
         let divs = document.querySelectorAll(".cell");
         divs.forEach(div => div.addEventListener("mouseover", changeColor));
-        divs.forEach(div => div.addEventListener("mouseout",  removeColor)); 
+        // divs.forEach(div => div.addEventListener("mouseout",  removeColor)); 
     }
     else {
         return alert("Not a valid number.")

@@ -29,7 +29,7 @@ a {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     width: 100vw;
     height: 93vh;
 }
