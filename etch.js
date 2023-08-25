@@ -16,9 +16,17 @@ divs.forEach(div => div.addEventListener("mouseout",  removeColor));
 let btn = document.querySelector("button");
 btn.addEventListener("click", changeGrid);
 
+function randomInteger(max) {
+    return Math.floor(Math.random() * (max + 1));
+}
+
 function changeColor(e) {
+    //generate random color
+    let r = randomInteger(255);
+    let g = randomInteger(255);
+    let b = randomInteger(255);
     let div = e.target;
-    div.setAttribute('style', 'background-color: #A3B18A');
+    div.setAttribute('style', `background-color: rgb(${r}, ${g}, ${b})`);
 }
 
 function removeColor(e) {
