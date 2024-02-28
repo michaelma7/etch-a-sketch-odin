@@ -28,12 +28,14 @@ function changeColor(e) {
     let b = randomInteger(255);
     let div = e.target;
     div.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    div.style.filter = `brightness(${darkness})`;
 }
 
 
 function resetGrid() {
     let divs = document.querySelectorAll(".cell");
     divs.forEach(div => div.style.backgroundColor = "white");
+    divs.forEach(div => div.style.filter = "brightness(100%)");
 }
 
 function changeGrid() {

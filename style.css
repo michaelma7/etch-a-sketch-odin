@@ -34,6 +34,10 @@ a {
     height: 93vh;
 }
 
+.cell {
+    filter: brightness(100%);
+}
+
 .header {
     display: flex;
     justify-content: space-between;
